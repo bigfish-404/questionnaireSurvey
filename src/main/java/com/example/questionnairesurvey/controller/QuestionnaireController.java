@@ -62,7 +62,15 @@ public class QuestionnaireController {
 
         Questionnaire questionnaire = new Questionnaire();
         questionnaire.setName(name);
-        questionnaire.setQ1_RADIO1(Integer.parseInt(Q1_RADIO1));
+
+        String param = request.getParameter("param");
+        if (param != null && param.matches("\\d+")) {
+            int value = Integer.parseInt(param);
+            questionnaire.setQ1_RADIO1(Integer.parseInt(Q1_RADIO1));
+        } else {
+            // 处理无效参数的情况
+        }
+
         questionnaire.setQ2_RADIO1(Integer.parseInt(Q2_RADIO1));
         questionnaire.setQ3_RADIO1(Integer.parseInt(Q3_RADIO1));
         questionnaire.setQ4_RADIO1(Integer.parseInt(Q4_RADIO1));
