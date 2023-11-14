@@ -52,7 +52,6 @@
         <dependency>
             <groupId>org.aspectj</groupId>
             <artifactId>aspectjweaver</artifactId>
-            <version>1.9.7</version>
         </dependency>
         <!-- 整合jsp页面 -->
         <dependency>

@@ -9,5 +9,6 @@ spring:
       ddl-auto: update
     show-sql: true
     generate-ddl: false
+
 server:
   port: 8085

@@ -5,26 +5,22 @@ import jakarta.persistence.*;
 
 
 @Entity
+//このクラスをJPAエンティティとしてマークし、クラスがデータベースに永続さておきます
 @Table(name= "answer")
+//このエンティティをマッピングするためのデータベーステーブルの名前を指定し
+@IdClass(QuestionnaireID.class)
+//複合キークラスをしてイスつために使用されます、主キーが複数のフィールドで構成されていることを示します
 public class Questionnaire {
-
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    private int id;
-    private String name;
-    private int Q1_RADIO1;
-    private int Q2_RADIO1;
-    private int Q3_RADIO1;
-    private int Q4_RADIO1;
-    private String Q5_ANSWER_TEXT;
+    private String company;
+    @Id
+    //@GeneratedValue(strategy = GenerationType.IDENTITY)
+    //generated 生产  基礎となるデータベースの自動増分主キーのメカニズム（结构）を使用することを示している
+    private String  name;
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+    private String department;
+    private String charge;
+    private int Q1_RADIO;
 
     public String getName() {
         return name;
@@ -34,43 +30,54 @@ public class Questionnaire {
         this.name = name;
     }
 
-    public int getQ1_RADIO1() {
-        return Q1_RADIO1;
+    private String Q2_ANSWER_TEXT;
+    private String Q3_ANSWER_TEXT;
+
+
+    public String getCompany() {
+        return company;
     }
 
-    public void setQ1_RADIO1(int q1_RADIO1) {
-        Q1_RADIO1 = q1_RADIO1;
+    public void setCompany(String company) {
+        this.company = company;
     }
 
-    public int getQ2_RADIO1() {
-        return Q2_RADIO1;
+    public String getDepartment() {
+        return department;
     }
 
-    public void setQ2_RADIO1(int q2_RADIO1) {
-        Q2_RADIO1 = q2_RADIO1;
+    public void setDepartment(String department) {
+        this.department = department;
     }
 
-    public int getQ3_RADIO1() {
-        return Q3_RADIO1;
+    public String getCharge() {
+        return charge;
     }
 
-    public void setQ3_RADIO1(int q3_RADIO1) {
-        Q3_RADIO1 = q3_RADIO1;
+    public void setCharge(String charge) {
+        this.charge = charge;
     }
 
-    public int getQ4_RADIO1() {
-        return Q4_RADIO1;
+    public int getQ1_RADIO() { return Q1_RADIO;}
+
+    public void setQ1_RADIO(int q1_RADIO) {
+        Q1_RADIO = q1_RADIO;
     }
 
-    public void setQ4_RADIO1(int q4_RADIO1) {
-        Q4_RADIO1 = q4_RADIO1;
+    public String getQ2_ANSWER_TEXT() {
+        return Q2_ANSWER_TEXT;
     }
 
-    public String getQ5_ANSWER_TEXT() {
-        return Q5_ANSWER_TEXT;
+    public void setQ2_ANSWER_TEXT(String q2_ANSWER_TEXT) {
+        Q2_ANSWER_TEXT = q2_ANSWER_TEXT;
     }
 
-    public void setQ5_ANSWER_TEXT(String q5_ANSWER_TEXT) {
-        Q5_ANSWER_TEXT = q5_ANSWER_TEXT;
+    public String getQ3_ANSWER_TEXT() {
+        return Q3_ANSWER_TEXT;
     }
+
+    public void setQ3_ANSWER_TEXT(String q3_ANSWER_TEXT) {
+        Q3_ANSWER_TEXT = q3_ANSWER_TEXT;
+    }
+
 }

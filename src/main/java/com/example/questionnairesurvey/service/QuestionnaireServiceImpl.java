@@ -2,6 +2,7 @@ package com.example.questionnairesurvey.service;
 
 import com.example.questionnairesurvey.dao.QuestionnaireRepository;
 import com.example.questionnairesurvey.entity.Questionnaire;
+import com.example.questionnairesurvey.entity.QuestionnaireID;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,18 +15,12 @@ public class QuestionnaireServiceImpl implements QuestionnaireService {
 
     @Override
     public void createQuestionnaire(Questionnaire questionnaire) {
+
         questionnaireRepository.save(questionnaire);
     }
 
     @Override
-    public Optional<Questionnaire> findById(int id) {
-        return questionnaireRepository.findById((long) id);
-    }
-
-    @Override
-    public Optional<Questionnaire> findByName(String name) {
-        return questionnaireRepository.findByName(name);
-    }
-
+    public Optional<Questionnaire> findById(String company, String name) {
+        return questionnaireRepository.findByCompanyAndName(company,name);}
 
 }
