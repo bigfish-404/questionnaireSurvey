@@ -2,16 +2,20 @@ package com.example.questionnairesurvey.controller;
 
 import com.example.questionnairesurvey.entity.Questionnaire;
 import com.example.questionnairesurvey.service.QuestionnaireService;
+import com.example.questionnairesurvey.util.CreateWord;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.io.IOException;
+
 @Controller
 public class QuestionnaireController {
     @Autowired
     private QuestionnaireService questionnaireService;
+
     @Autowired
     private HttpSession session;
 
@@ -27,7 +31,7 @@ public class QuestionnaireController {
     }
 
     @PostMapping("/complete")
-    public String submitQuestionnaire(HttpServletRequest request) {
+    public String submitQuestionnaire(HttpServletRequest request) throws IOException {
 
         String company = (String) session.getAttribute("company");
         String name = (String) session.getAttribute("name");
@@ -48,6 +52,9 @@ public class QuestionnaireController {
         questionnaire.setQ3_ANSWER_TEXT(Q3_ANSWER_TEXT);
 
         questionnaireService.createQuestionnaire(questionnaire);
+        CreateWord createWord = new CreateWord();
+        createWord.createDocument(questionnaire);
         return "success";
     }
+
 }

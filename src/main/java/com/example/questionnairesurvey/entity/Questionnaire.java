@@ -21,6 +21,8 @@ public class Questionnaire {
     private String department;
     private String charge;
     private int Q1_RADIO;
+    private String Q2_ANSWER_TEXT;
+    private String Q3_ANSWER_TEXT;
 
     public String getName() {
         return name;
@@ -30,10 +32,6 @@ public class Questionnaire {
         this.name = name;
     }
 
-    private String Q2_ANSWER_TEXT;
-    private String Q3_ANSWER_TEXT;
-
-
     public String getCompany() {
         return company;
     }
@@ -42,9 +40,7 @@ public class Questionnaire {
         this.company = company;
     }
 
-    public String getDepartment() {
-        return department;
-    }
+    public String getDepartment() {return department;}
 
     public void setDepartment(String department) {
         this.department = department;
