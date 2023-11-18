@@ -31,7 +31,7 @@ public class CreateWord {
         map.put("${name}", questionnaire.getName());
         map.put("${date}",formattedDate);
 
-        OPCPackage opcPackage = POIXMLDocument.openPackage("/Users/bigfish/Desktop/(サンクス)○○○支社（代理店名）.docx");
+        OPCPackage opcPackage = POIXMLDocument.openPackage("/Users/bigfish/Desktop/(サンクス)○○○支社.docx");
 
         XWPFDocument doc = new XWPFDocument(opcPackage);
 
@@ -63,4 +63,3 @@ public class CreateWord {
 
 
 }
-
